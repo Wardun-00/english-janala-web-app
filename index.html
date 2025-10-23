@@ -113,10 +113,10 @@
     <main>
       <!-- banner section--1-->
       <section
-        class="flex flex-col md:flex-row items-center justify-between max-w-[1920px] mx-auto mt-8"
+        class="flex flex-col-reverse md:flex-row items-center justify-between max-w-[1480px] mx-auto mt-8"
       >
         <!-- right side of banner -->
-        <div class="content">
+        <div class="content text-center md:text-left">
           <h1 class="text-[#00BCFF] font-bold text-5xl p-4">
             English <span class="text-[#18181B]">is Easy!!</span>
           </h1>
@@ -131,13 +131,15 @@
             <input
               type="text"
               placeholder="Enter Your Name"
+              required
               class="input input-neutral"
             />
             <br />
 
             <input
               type="password"
-              placeholder="Enter Your Name"
+              placeholder="Enter password"
+              required
               class="input input-neutral mt-5"
             />
             <br />
@@ -155,6 +157,38 @@
           <img src="./assets/hero-student.png" alt="" />
         </div>
       </section>
+
+      <!-- Let's Learn vocabulary section -->
+      <section class="max-w-[1480px] mx-auto mt-8">
+        <h2 class="text-3xl font-bold text-center">
+          <span class="text-[#00BCFF] p-1">Let's</span> Learn Vocabularies
+        </h2>
+
+        <!-- Level container -->
+        <div
+          id="level-container"
+          class="flex gap-5 flex-wrap justify-center mt-5"
+        ></div>
+      </section>
+
+      <!-- Word section -->
+
+      <section
+        id="word-container"
+        class="p-10 max-w-[1480px] mx-auto bg-gray-100 my-10 grid grid-cols-1 md:grid-cols-3 gap-5"
+      >
+        <div class="col-span-full py-5 space-y-6">
+          <p class="text-center text-gray-500">
+            আপনি এখনো কোন Lesson Select করেন-নি
+          </p>
+          <h2 class="font-bold text-2xl text-center">
+            একটি Lesson Select করুন।
+          </h2>
+        </div>
+      </section>
     </main>
+
+    <!-- Js Linkup  -->
+    <script src="./script/index.js"></script>
   </body>
 </html>

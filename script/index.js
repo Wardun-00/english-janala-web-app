@@ -1,0 +1,75 @@
+
+
+const loadLessons = () => {
+    const url = "https://openapi.programming-hero.com/api/levels/all";
+
+    fetch(url) //promise of response
+    .then(response => response.json()) // promise of json data
+    .then(json => displayLesson(json.data))
+};
+
+
+const loadLevelWord = (id) => {
+ const url =`https://openapi.programming-hero.com/api/level/${id}`;
+ fetch(url)
+ .then(res => res.json())
+ .then(data => displayLevelWord(data.data))
+}
+
+const displayLevelWord = (words) => {
+    // first a html a giye container ta nite hobe
+
+    const wordContainer = document.getElementById("word-container");
+    // er por container ta empty kore nite hobe
+    wordContainer.innerHTML ="";
+    // er por loop kore nite hobe arry take normal text a paowar jnno
+
+    words.forEach(word =>{
+        const card = document.createElement("div")
+        card.innerHTML=`
+       <div
+          class="bg-white rounded-xl py-10 px-5 text-center shadow-sm space-y-4"
+        >
+          <h2 class="font-bold text-2xl">${word.word}</h2>
+          <p class="font-semibold">Meaning/Pronunciation</p>
+          <div class="font-bangla text-2xl font-medium">${word.meaning} / ${word.pronunciation}</div>
+          <div class="flex justify-between">
+            <button class="btn bg-[#1A91FF10] hover:bg-[#0b61b180]">
+              <i class="fa-solid fa-circle-info"></i>
+            </button>
+            <button class="btn bg-[#1A91FF10] hover:bg-[#0b61b180]">
+              <i class="fa-solid fa-volume-high"></i>
+            </button>
+          </div>
+        </div>
+        `;
+
+        wordContainer.append(card)
+    });
+
+}
+
+
+
+const displayLesson = (lessons) => {
+//    1. get the container and empty container
+
+    const levelContainer = document.getElementById("level-container");
+    levelContainer.innerHTML = ""; //empty
+//    2. get into every lesson (loop)
+
+    for(let lesson of lessons){
+        const btnDiv = document.createElement("div");
+        btnDiv.innerHTML = `
+        <button onclick="loadLevelWord(${lesson.level_no})" class="btn btn-soft btn-primary">
+        <i class="fa-solid fa-book-open"></i> Lesson ${lesson.level_no}
+        </button>
+        `;
+
+        levelContainer.append(btnDiv);
+    }
+
+    
+};
+
+loadLessons();
