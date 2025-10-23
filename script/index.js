@@ -22,6 +22,22 @@ const displayLevelWord = (words) => {
     const wordContainer = document.getElementById("word-container");
     // er por container ta empty kore nite hobe
     wordContainer.innerHTML ="";
+    
+    if(words.length == 0){
+        wordContainer.innerHTML =`
+        <div class="col-span-full py-5 space-y-5">
+          <img class="mx-auto" src="./assets/alert-error.png" alt="alert-error">
+          <p class="text-center text-gray-500">
+           এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।
+          </p>
+          <h2 class="font-bold text-2xl md:text-5xl text-center">
+            নেক্সট Lesson এ যান
+          </h2>
+        </div>
+        `;
+        return;
+    }
+
     // er por loop kore nite hobe arry take normal text a paowar jnno
 
     words.forEach(word =>{
