@@ -5,3 +5,8 @@
 .font-bangla{
     font-size:"Hind Siliguri", sans-serif;
 }
+
+.active{
+    background-color: #422ad5;
+    color: white;
+}
